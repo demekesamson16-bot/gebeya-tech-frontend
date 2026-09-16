@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import ProductCard from '../components/ProductCard';
 import CoverSlider from '../components/CoverSlider';
 import FilterChips from '../components/FilterChips';
+import cover1 from '../assets/cover1.jpg';
+import cover2 from '../assets/cover2.jpg';
 import { api } from '../api';
 import { haptic } from '../telegram';
 import { useLanguage } from '../LanguageContext';
@@ -102,7 +104,7 @@ export default function Home({ cart }) {
       <Header cartCount={cart.count} onSearch={setQuery} />
 
       {/* Cover — sliding banner */}
-      <CoverSlider images={['/cover1.jpg', '/cover2.jpg']} />
+      <CoverSlider images={[cover1, cover2]} />
 
       {/* Category chips */}
       <div className="cats">
