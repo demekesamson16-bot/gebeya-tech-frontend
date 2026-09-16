@@ -3593,3 +3593,123 @@ html, body {
   min-height: 46px;
   border-radius: 999px;
 }
+
+/* ============================================================
+   MOBILE TIER 1 — fixed September 16, 2026
+   All four mobile-first improvements
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   FIX 1 — Thumb-safe bottom navigation
+   ------------------------------------------------------------ */
+.bottom-nav {
+  padding: 12px 0 16px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+}
+
+.nav-item {
+  min-height: 56px;
+  padding: 6px 4px;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.nav-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.nav-badge {
+  top: -4px;
+  right: -8px;
+  min-width: 20px;
+  height: 20px;
+  font-size: 11px;
+  line-height: 20px;
+  padding: 0 6px;
+  border-width: 2px;
+}
+
+/* ------------------------------------------------------------
+   FIX 2 — Cover height cap for small screens
+   ------------------------------------------------------------ */
+.cover-slider {
+  aspect-ratio: 2 / 1;
+  max-height: 200px;
+}
+
+@media (max-width: 400px) {
+  .cover-slider {
+    max-height: 170px;
+  }
+}
+
+/* ------------------------------------------------------------
+   FIX 3 — Readable text without zooming (iOS-safe)
+   ------------------------------------------------------------ */
+input,
+textarea,
+select {
+  font-size: 16px !important;
+}
+
+.card-title {
+  font-size: 13px;
+}
+
+.card-location {
+  font-size: 11.5px;
+}
+
+.card-price-label {
+  font-size: 11px;
+}
+
+.section-title {
+  font-size: 20px;
+}
+
+.meta-chip {
+  font-size: 12.5px;
+}
+
+.detail p.desc {
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+/* ------------------------------------------------------------
+   FIX 4 — Cover gradient overlay for text/dot readability
+   ------------------------------------------------------------ */
+.cover-slider::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+
+.cover-dots {
+  z-index: 5;
+  bottom: 14px;
+}
+
+.cover-dot {
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.cover-dot.active {
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.4);
+}
